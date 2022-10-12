@@ -32,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
         Model::preventSilentlyDiscardingAttributes(!app()->isProduction());
 
         DB::whenQueryingForLongerThan(500, function (Connection $connection) {
-            dispatch(new LogJob("Запрос выполняется очень долго!"));
+            // TODO Logger
         });
     }
 }
