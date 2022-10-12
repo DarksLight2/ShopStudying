@@ -10,15 +10,13 @@ class LogEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public string $message;
-
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(string $message)
+    public function __construct(public string $message)
     {
-        $this->message = $message;
+
     }
 }

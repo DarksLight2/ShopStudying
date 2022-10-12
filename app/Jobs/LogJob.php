@@ -13,16 +13,14 @@ class LogJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    private string $message;
-
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(string $message)
+    public function __construct(public string $message)
     {
-        $this->message = $message;
+
     }
 
     /**
