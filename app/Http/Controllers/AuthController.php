@@ -3,22 +3,40 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthorizeRequest;
-
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function index()
+    public function index(): Factory|View|Application
     {
-        // TODO return view(path to page)
+        return view('auth.index');
     }
 
-    public function store(AuthorizeRequest $request)
+    public function email(): Factory|View|Application
     {
-        $request->authenticate();
+        return view('auth.email');
+    }
 
-        $request->session()->regenerate();
+    public function storeEmail(AuthorizeRequest $request): RedirectResponse
+    {
+        if ($request->authenticate()) {
+            $request->session()->regenerate();
+            return redirect()->route('home');
+        } else {
+            return redirect()->back()->withInput($request->all())->withErrors(
+                ['credentials' => 'Мы не смогли найти вашу учётную запись.']
+            );
+        }
+    }
 
-        dd(Auth::user());
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->route('home');
     }
 }

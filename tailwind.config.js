@@ -1,5 +1,7 @@
 module.exports = {
-    content: ["./resources/views/*.blade.php"],
+    content: [
+        "./resources/**"
+    ],
     darkMode: 'media',
     theme: {
         screens: {
