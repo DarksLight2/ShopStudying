@@ -16,7 +16,7 @@
             @error('credentials')
             <h2 class="mb-5 text-sm font-semibold text-red-300">{{ $message }}</h2>
             @enderror
-            <form action="{{ route('auth.store-email') }}" method="post" class="space-y-3">
+            <form action="{{ route('login') }}" method="post" class="space-y-3">
                 @csrf
                 @error('email')
                 <label for="email" class="text-red-300">
@@ -37,10 +37,10 @@
                 <button type="submit" class="w-full btn btn-pink">Войти</button>
             </form>
             <div class="space-y-3 mt-5">
-                <div class="text-xxs md:text-xs"><a href="{{ route('forget.password.index') }}"
+                <div class="text-xxs md:text-xs"><a href="{{ route('password.request') }}"
                                                     class="text-white hover:text-white/70 font-bold">Забыли пароль?</a>
                 </div>
-                <div class="text-xxs md:text-xs"><a href="{{ route('register.index') }}"
+                <div class="text-xxs md:text-xs"><a href="{{ route('register') }}"
                                                     class="text-white hover:text-white/70 font-bold">Регистрация</a>
                 </div>
             </div>

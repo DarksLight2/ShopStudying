@@ -17,8 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
-});
-
 require __DIR__ . '/auth.php';
