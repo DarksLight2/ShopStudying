@@ -38,6 +38,11 @@ Route::middleware('guest')->group(function () {
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
         ->name('password.update');
+
+    Route::get('/auth/github', [AuthenticatedSessionController::class, 'github'])->name('auth.github');
+    Route::get('/auth/github/callback', [AuthenticatedSessionController::class, 'githubCallback'])->name(
+        'auth.github.callback'
+    );
 });
 
 Route::middleware('auth')->group(function () {
