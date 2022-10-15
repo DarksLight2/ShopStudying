@@ -11,6 +11,7 @@
         "laravel-notification-channels/telegram": "^2.1",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
+        "laravel/socialite": "^5.5",
         "laravel/telescope": "^4.9",
         "laravel/tinker": "^2.7"
     },
