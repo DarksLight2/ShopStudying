@@ -13,7 +13,7 @@
 
         <div class="max-w-[640px] mt-12 mx-auto p-6 xs:p-8 md:p-12 2xl:p-16 rounded-[20px] bg-purple">
             <h1 class="mb-5 text-lg font-semibold">Восстановить пароль</h1>
-            <form method="post" action="{{ route('forgot-password.restore') }}" class="space-y-3">
+            <form method="post" action="{{ route('password.email') }}" class="space-y-3">
                 @csrf
                 @error('email')
                 <div class="mt-3 text-pink text-xxs xs:text-xs">{{ $message }}</div>
@@ -24,7 +24,7 @@
                 <button type="submit" class="w-full btn btn-pink">Отправить</button>
             </form>
             <div class="space-y-3 mt-5">
-                <div class="text-xxs md:text-xs"><a href="{{ route('register.index') }}"
+                <div class="text-xxs md:text-xs"><a href="{{ route('register') }}"
                                                     class="text-white hover:text-white/70 font-bold">Регистрация</a>
                 </div>
             </div>

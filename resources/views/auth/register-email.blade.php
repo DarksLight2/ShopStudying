@@ -13,7 +13,7 @@
 
         <div class="max-w-[640px] mt-12 mx-auto p-6 xs:p-8 md:p-12 2xl:p-16 rounded-[20px] bg-purple">
             <h1 class="mb-5 text-lg font-semibold">Регистрация</h1>
-            <form method="post" action="{{ route('register.store-email') }}" class="space-y-3">
+            <form method="post" action="{{ route('register') }}" class="space-y-3">
                 @csrf
                 @error('name')
                 <div class="mt-3 text-pink text-xxs xs:text-xs">{{ $message }}</div>
@@ -45,7 +45,7 @@
                 <button type="submit" class="w-full btn btn-pink">Зарегистрироваться</button>
             </form>
             <div class="space-y-3 mt-5">
-                <div class="text-xxs md:text-xs">Есть аккаунт? <a href="{{ route('auth.index') }}"
+                <div class="text-xxs md:text-xs">Есть аккаунт? <a href="{{ route('login') }}"
                                                                   class="text-white hover:text-white/70 font-bold underline underline-offset-4">Войти</a>
                 </div>
             </div>
