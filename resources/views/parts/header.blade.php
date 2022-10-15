@@ -6,15 +6,13 @@
 	<meta name="description" content="Видеокурс по изучению принципов программирования">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-	<link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
-	<link rel="mask-icon" href="./images/safari-pinned-tab.svg" color="#1E1F43">
+{{--	<link rel="apple-touch-icon" sizes="180x180" href="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/apple-touch-icon.png', null) }}">--}}
+{{--	<link rel="icon" type="image/png" sizes="32x32" href="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/favicon-32x32.png', null) }}">--}}
+{{--	<link rel="icon" type="image/png" sizes="16x16" href="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/favicon-16x16.png', null) }}">--}}
+{{--	<link rel="mask-icon" href="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/safari-pinned-tab.svg', null) }}" color="#1E1F43">--}}
 	<meta name="msapplication-TileColor" content="#1E1F43">
 	<meta name="theme-color" content="#1E1F43">
-
-	<link rel="stylesheet" href="./css/tailwind.css">
-	<link rel="stylesheet" href="./css/main.css">
+    @vite(['resources/css/app.css', 'resources/sass/main.sass', 'resources/js/app.js'])
 </head>
 <body x-data="{ 'showTaskUploadModal': false, 'showTaskEditModal': false }" x-cloak>
 
@@ -24,7 +22,7 @@
 			<div class="header-inner flex items-center justify-between lg:justify-start">
 				<div class="header-logo shrink-0">
 					<a href="index.html" rel="home">
-						<img src="./images/logo.svg" class="w-[120px] xs:w-[148px] md:w-[201px] h-[30px] xs:h-[36px] md:h-[50px]" alt="CutCode">
+						<img src="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/logo.svg', null) }}" class="w-[120px] xs:w-[148px] md:w-[201px] h-[30px] xs:h-[36px] md:h-[50px]" alt="CutCode">
 					</a>
 				</div><!-- /.header-logo -->
 				<div class="header-menu grow hidden lg:flex items-center ml-8 mr-8 gap-8">
@@ -50,7 +48,7 @@
 					<div x-data="{dropdownProfile: false}" class="profile relative">
 						<button @click="dropdownProfile = ! dropdownProfile" class="flex items-center text-white hover:text-pink transition">
 							<span class="sr-only">Профиль</span>
-							<img src="./images/avatar.jpg" class="shrink-0 w-7 md:w-9 h-7 md:h-9 rounded-full" alt="Данил Шуцкий">
+							<img src="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/avatar.jpg', null) }}" class="shrink-0 w-7 md:w-9 h-7 md:h-9 rounded-full" alt="Данил Шуцкий">
 							<span class="hidden md:block ml-2 font-medium">Данил</span>
 							<svg class="shrink-0 w-3 h-3 ml-2" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 30 16">
 								<path fill-rule="evenodd" d="M27.536.72a2 2 0 0 1-.256 2.816l-12 10a2 2 0 0 1-2.56 0l-12-10A2 2 0 1 1 3.28.464L14 9.397 24.72.464a2 2 0 0 1 2.816.256Z" clip-rule="evenodd"/>
@@ -59,17 +57,17 @@
 						<div
 							x-show="dropdownProfile"
 							@click.away="dropdownProfile = false"
-							x-transition:enter="ease-out duration-300" 
-							x-transition:enter-start="opacity-0" 
-							x-transition:enter-end="opacity-100" 
-							x-transition:leave="ease-in duration-150" 
-							x-transition:leave-start="opacity-100" 
+							x-transition:enter="ease-out duration-300"
+							x-transition:enter-start="opacity-0"
+							x-transition:enter-end="opacity-100"
+							x-transition:leave="ease-in duration-150"
+							x-transition:leave-start="opacity-100"
 							x-transition:leave-end="opacity-0"
 							class="absolute z-50 top-0 -right-20 xs:-right-8 sm:right-0 w-[280px] sm:w-[300px] mt-14 p-4 rounded-lg shadow-xl bg-card"
 						>
 							<h5 class="text-body text-xs">Мой профиль</h5>
 							<div class="flex items-center mt-3">
-								<img src="./images/avatar.jpg" class="w-11 h-11 rounded-full" alt="Данил Шуцкий">
+								<img src="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/avatar.jpg', null) }}" class="w-11 h-11 rounded-full" alt="Данил Шуцкий">
 								<span class="ml-3 text-xs md:text-sm font-bold">Данил Шуцкий</span>
 							</div>
 							<div class="mt-4">

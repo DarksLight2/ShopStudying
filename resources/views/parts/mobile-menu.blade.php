@@ -3,7 +3,7 @@
 		<div class="mmenu-heading flex items-center pt-6 xl:pt-12">
 			<div class="shrink-0 grow">
 				<a href="index.html" rel="home">
-					<img src="./images/logo-dark.svg" class="w-[148px] md:w-[201px] h-[36px] md:h-[50px]" alt="CutCode">
+					<img src="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/logo-dark.svg', null) }}" class="w-[148px] md:w-[201px] h-[36px] md:h-[50px]" alt="CutCode">
 				</a>
 			</div>
 			<div class="shrink-0 flex items-center">
@@ -21,7 +21,7 @@
 				<span class="profile-text relative ml-2 text-dark font-bold">Войти</span>
 			</a> -->
 			<div class="flex items-center">
-				<img src="./images/avatar.jpg" class="w-14 h-14 rounded-full" alt="Данил Шуцкий">
+				<img src="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/avatar.jpg', null) }}" class="w-14 h-14 rounded-full" alt="Данил Шуцкий">
 				<div class="flex flex-col items-start ml-4">
 					<span class="text-dark text-xs md:text-sm font-bold">Данил Шуцкий</span>
 					<a href="#" class="inline-flex items-center text-dark hover:text-pink">
@@ -41,11 +41,11 @@
 			</nav>
 			<div class="flex flex-wrap items-center space-x-6 mt-8">
 				<a href="#" class="inline-flex items-center text-darkblue hover:text-purple" target="_blank" rel="nofollow noopener">
-					<img class="h-5 lg:h-6" src="./images/icons/youtube.svg" alt="YouTube">
+					<img class="h-5 lg:h-6" src="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/icons/youtube.svg', null) }}" alt="YouTube">
 					<span class="ml-2 lg:ml-3 text-xxs font-semibold">YouTube</span>
 				</a>
 				<a href="#" class="inline-flex items-center text-darkblue hover:text-purple" target="_blank" rel="nofollow noopener">
-					<img class="h-5 lg:h-6" src="./images/icons/telegram.svg" alt="Telegram">
+					<img class="h-5 lg:h-6" src="{{ \Illuminate\Support\Facades\Vite::asset('resources/images/icons/telegram.svg', null) }}" alt="Telegram">
 					<span class="ml-2 lg:ml-3 text-xxs font-semibold">Telegram</span>
 				</a>
 			</div>

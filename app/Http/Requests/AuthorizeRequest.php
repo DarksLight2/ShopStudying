@@ -17,9 +17,9 @@ class AuthorizeRequest extends FormRequest
         return true;
     }
 
-    public function authenticate()
+    public function authenticate(): bool
     {
-        Auth::attempt($this->only('email', 'password'));
+        return Auth::attempt($this->only('email', 'password'));
     }
 
     /**
@@ -30,8 +30,8 @@ class AuthorizeRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required', 'string'],
-            'password' => ['required', 'string'],
+            'email' => ['bail', 'required', 'string'],
+            'password' => ['bail', 'required', 'string'],
         ];
     }
 }

@@ -11,7 +11,7 @@ class RegisterRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,12 +21,19 @@ class RegisterRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'min:3', 'max:20'],
-            'email' => ['required', 'email', 'unique:users,email'],
-            'password' => ['required', 'confirmed', 'min:6'],
+            'name' => [
+                'bail',
+                'required',
+                'string',
+                'min:3',
+                'max:255',
+                'regex:/^([a-zA-ZА-Яа-я]{3,})\s([a-zA-ZА-Яа-я]{3,})$/'
+            ],
+            'email' => ['bail', 'required', 'email', 'unique:users,email'],
+            'password' => ['bail', 'required', 'confirmed', 'min:6'],
         ];
     }
 }
