@@ -53,7 +53,9 @@
                         <button @click="dropdownProfile = ! dropdownProfile"
                                 class="flex items-center text-white hover:text-pink transition">
                             <span class="sr-only">Профиль</span>
+                            
                             <img src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url(\Illuminate\Support\Facades\Auth::user()->avatar) }}"
+
                                  class="shrink-0 w-7 md:w-9 h-7 md:h-9 rounded-full"
                                  alt="{{ \Illuminate\Support\Facades\Auth::user()->name . ' ' . \Illuminate\Support\Facades\Auth::user()->surname }}">
                             <span class="hidden md:block ml-2 font-medium">{{ \Illuminate\Support\Facades\Auth::user()->name }}</span>
@@ -77,7 +79,9 @@
                         >
                             <h5 class="text-body text-xs">Мой профиль</h5>
                             <div class="flex items-center mt-3">
+                            
                                 <img src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url(\Illuminate\Support\Facades\Auth::user()->avatar) }}"
+
                                      class="w-11 h-11 rounded-full"
                                      alt="{{ \Illuminate\Support\Facades\Auth::user()->name . ' ' . \Illuminate\Support\Facades\Auth::user()->surname }}">
                                 <span class="ml-3 text-xs md:text-sm font-bold">{{ \Illuminate\Support\Facades\Auth::user()->name . ' ' . \Illuminate\Support\Facades\Auth::user()->surname }}</span>
@@ -105,8 +109,10 @@
                         </div>
                     </div>
                 @else
-                    <a href="{{ route('login') }}">Авторизация</a>
-                    <a href="{{ route('register') }}">Регистрация</a>
+
+                    <a class="w-[120px] btn btn-pink" href="{{ route('login') }}">Авторизация</a>
+                    <a class="w-[120px] btn btn-pink" href="{{ route('register') }}">Регистрация</a>
+                    
                 @endauth
                 <a href="cart.html" class="flex items-center gap-3 text-pink hover:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 md:w-7 w-6 md:h-7" fill="currentColor"

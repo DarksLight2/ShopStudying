@@ -1,4 +1,5 @@
 @include('parts.header')
+
 <main class="md:min-h-screen md:flex md:items-center md:justify-center py-16 lg:py-20">
     <div class="container">
 
@@ -11,33 +12,36 @@
         </div>
 
         <div class="max-w-[640px] mt-12 mx-auto p-6 xs:p-8 md:p-12 2xl:p-16 rounded-[20px] bg-purple">
-            <h1 class="mb-5 text-lg font-semibold">Восстановление пароля</h1>
-            @error('credentials')
-            <h2 class="mb-5 text-sm font-semibold text-red-300">{{ $message }}</h2>
-            @enderror
-            <form action="{{ route('password.update') }}" method="post" class="space-y-3">
+            <h1 class="mb-5 text-lg font-semibold">Восстановить пароль</h1>
+            <form method="POST" action="{{ route('password.update') }}" class="space-y-3">
+
                 @csrf
+
                 <input type="hidden" name="token" value="{{ $request->route('token') }}">
-                @error('email')
-                <label for="email" class="text-red-300">
-                    {{ $message }}
-                </label>
-                @enderror
-                <input id="email" name="email" type="email" value="{{ old('email') }}"
-                       class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/20 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
-                       placeholder="E-mail" required>
-                @error('password')
-                <label for="password" class="text-red-300">
-                    {{ $message }}
-                </label>
-                @enderror
-                <input name="password" type="password"
-                       class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/20 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
-                       placeholder="Пароль" required>
-                <input name="password_confirmation" type="password"
-                       class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/20 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
-                       placeholder="Повтор пароля" required>
-                <button type="submit" class="w-full btn btn-pink">Сменить пароль</button>
+                <div>
+                    @error('email')
+                    <div class="mt-3 text-pink text-xxs xs:text-xs">{{ $message }}</div>
+                    @enderror
+                    <input name="email" type="email"
+                           class="@error('email') _is-error @enderror w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/20 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
+                           placeholder="E-mail" required value="{{ old('email', $request->email) }}">
+                </div>
+                <div>
+                    @error('password')
+                    <div class="mt-3 text-pink text-xxs xs:text-xs">{{ $message }}</div>
+                    @enderror
+                    <input name="password" type="password"
+                           class="@error('password') _is-error @enderror w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/20 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
+                           placeholder="Пароль" required>
+                </div>
+                <div>
+                    <input name="password_confirmation" type="password"
+                           class="w-full h-14 px-4 rounded-lg border border-[#A07BF0] bg-white/20 focus:border-pink focus:shadow-[0_0_0_2px_#EC4176] outline-none transition text-white placeholder:text-white text-xxs md:text-xs font-semibold"
+                           placeholder="Повтор пароля" required>
+                </div>
+
+                <button type="submit" class="w-full btn btn-pink">Изменить пароль</button>
+
             </form>
         </div>
 
