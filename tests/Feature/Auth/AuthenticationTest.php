@@ -3,7 +3,6 @@
 namespace Tests\Feature\Auth;
 
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -14,6 +13,10 @@ class AuthenticationTest extends TestCase
     public function test_login_screen_can_be_rendered()
     {
         $response = $this->get('/login');
+
+        $response->assertStatus(200);
+
+        $response = $this->get('/login-email');
 
         $response->assertStatus(200);
     }
@@ -28,7 +31,7 @@ class AuthenticationTest extends TestCase
         ]);
 
         $this->assertAuthenticated();
-        $response->assertRedirect(RouteServiceProvider::HOME);
+        $response->assertRedirect(route('home'));
     }
 
     public function test_users_can_not_authenticate_with_invalid_password()
@@ -40,6 +43,11 @@ class AuthenticationTest extends TestCase
             'password' => 'wrong-password',
         ]);
 
+        $this->assertGuest();
+    }
+
+    public function test_github_authorization()
+    {
         $this->assertGuest();
     }
 }
