@@ -41,6 +41,7 @@
                 </div>
 
                 <button type="submit" class="w-full btn btn-pink">Изменить пароль</button>
+
             </form>
         </div>
 
