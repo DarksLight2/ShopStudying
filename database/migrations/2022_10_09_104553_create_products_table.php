@@ -1,11 +1,13 @@
 <?php
 
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -16,12 +18,36 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->float('price')->nullable();
-            $table->integer('discount')->default(0);
-            $table->string('thumbnail')->nullable();
-            $table->text('description');
-            $table->foreignId('category_id')->constrained()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->string('slug');
+            $table->unsignedInteger('price')
+                ->default(0);
+
+            $table->integer('discount')
+                ->default(0);
+
+            $table->string('thumbnail')
+                ->nullable();
+
+            $table->foreignIdFor(Brand::class)
+                ->constrained()
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+
             $table->timestamps();
+        });
+
+        Schema::create('category_product', function (Blueprint $table) {
+            $table->id();
+
+            $table->foreignIdFor(Product::class)
+                ->constrained()
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+
+            $table->foreignIdFor(Category::class)
+                ->constrained()
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
         });
     }
 
@@ -32,6 +58,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        if (app()->isLocal()) {
+            Schema::dropIfExists('category_product');
+            Schema::dropIfExists('products');
+        }
     }
 };

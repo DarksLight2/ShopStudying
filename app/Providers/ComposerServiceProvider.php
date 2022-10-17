@@ -2,7 +2,8 @@
 
 namespace App\Providers;
 
-use App\ViewComposers\CategoryComposer;
+use App\Models\Category;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class ComposerServiceProvider extends ServiceProvider
@@ -24,6 +25,8 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('parts.categories', CategoryComposer::class);
+        View::composer('parts.categories', function ($view) {
+            $view->with(['categories' => Category::get()]);
+        });
     }
 }

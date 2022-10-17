@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -13,11 +12,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('benefits', function (Blueprint $table) {
+        Schema::create('brands', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
-            $table->string('appointment');
+            $table->string('slug')->nullable();
             $table->string('thumbnail');
             $table->timestamps();
         });
@@ -30,6 +28,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('benefits');
+        if (app()->isLocal()) {
+            Schema::dropIfExists('brands');
+        }
     }
 };
