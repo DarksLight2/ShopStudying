@@ -80,7 +80,7 @@ return [
 
         'telegram' => [
             'driver' => 'custom',
-            'via' => \App\Logging\Telegram\TelegramLoggerFactory::class,
+            'via' => Support\Logging\Telegram\TelegramLoggerFactory::class,
             'level' => env('LOG_LEVEL', 'debug'),
             'chat_id' => env('TELEGRAM_CHAT_ID'),
             'bot_token' => env('TELEGRAM_BOT_TOKEN')
