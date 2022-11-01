@@ -6,7 +6,7 @@
     <div class="max-w-[640px] mt-12 mx-auto p-6 xs:p-8 md:p-12 2xl:p-16 rounded-[20px] bg-purple">
         <h1 class="mb-5 text-lg font-semibold">Забыли пароль</h1>
 
-        <x-forms.auth-form title="Забыли пароль" action="{{ route('signIn') }}" method="POST">
+        <x-forms.auth-form title="Забыли пароль" action="{{ route('auth.forgot-password.store') }}">
             <x-forms.text-input :isError="$errors->has('email')"
                                 name="email"
                                 type="email"
@@ -22,14 +22,16 @@
 
             <x-slot:buttons>
                 <div class="space-y-3 mt-5">
-                    <div class="text-xxs md:text-xs"><a href="{{ route('login') }}"
+                    <div class="text-xxs md:text-xs"><a href="{{ route('auth.login') }}"
                                                         class="text-white hover:text-white/70 font-bold">Авторизация</a>
                     </div>
-                    <div class="text-xxs md:text-xs"><a href="{{ route('signUp') }}"
+                    <div class="text-xxs md:text-xs"><a href="{{ route('auth.signUp') }}"
                                                         class="text-white hover:text-white/70 font-bold">Регистрация</a>
                     </div>
                 </div>
             </x-slot:buttons>
+
+
         </x-forms.auth-form>
 
         <ul class="flex flex-col md:flex-row justify-between gap-3 md:gap-4 mt-14 md:mt-20">

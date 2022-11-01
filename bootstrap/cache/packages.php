@@ -95,4 +95,11 @@
       'Flare' => 'Spatie\\LaravelIgnition\\Facades\\Flare',
     ),
   ),
+  'worksome/request-factories' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Worksome\\RequestFactories\\RequestFactoriesServiceProvider',
+    ),
+  ),
 );

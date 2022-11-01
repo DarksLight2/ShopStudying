@@ -16,13 +16,13 @@ class ProductFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'title' => fake()->text(10),
             'price' => fake()->numberBetween(0, 1000),
             'discount' => rand(0, 100),
-            'thumbnail' => fake()->image('public/storage/images/products'),
+            'thumbnail' => fake()->fixturesImage('products', 'images/products'),
             'brand_id' => Brand::query()->inRandomOrder()->value('id'),
         ];
     }

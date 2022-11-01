@@ -35,13 +35,14 @@
     31 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     32 => 'Termwind\\Laravel\\TermwindServiceProvider',
     33 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
-    34 => 'App\\Providers\\AppServiceProvider',
-    35 => 'App\\Providers\\AuthServiceProvider',
+    34 => 'Worksome\\RequestFactories\\RequestFactoriesServiceProvider',
+    35 => 'App\\Providers\\AppServiceProvider',
     36 => 'App\\Providers\\EventServiceProvider',
     37 => 'App\\Providers\\RouteServiceProvider',
     38 => 'App\\Providers\\TelescopeServiceProvider',
     39 => 'App\\Providers\\ComposerServiceProvider',
     40 => 'App\\Providers\\ViewServiceProvider',
+    41 => 'App\\Providers\\DomainServiceProvider',
   ),
   'eager' => 
   array (
@@ -63,13 +64,14 @@
     15 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     16 => 'Termwind\\Laravel\\TermwindServiceProvider',
     17 => 'Spatie\\LaravelIgnition\\IgnitionServiceProvider',
-    18 => 'App\\Providers\\AppServiceProvider',
-    19 => 'App\\Providers\\AuthServiceProvider',
+    18 => 'Worksome\\RequestFactories\\RequestFactoriesServiceProvider',
+    19 => 'App\\Providers\\AppServiceProvider',
     20 => 'App\\Providers\\EventServiceProvider',
     21 => 'App\\Providers\\RouteServiceProvider',
     22 => 'App\\Providers\\TelescopeServiceProvider',
     23 => 'App\\Providers\\ComposerServiceProvider',
     24 => 'App\\Providers\\ViewServiceProvider',
+    25 => 'App\\Providers\\DomainServiceProvider',
   ),
   'deferred' => 
   array (

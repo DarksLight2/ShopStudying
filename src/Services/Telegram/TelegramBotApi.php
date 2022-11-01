@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Services\Telegram;
+namespace Services\Telegram;
 
 use App\Exceptions\TelegramBotApiException;
 use Exception;
-use Illuminate\Support\Facades\Http;
+use Http;
 
 final class TelegramBotApi
 {

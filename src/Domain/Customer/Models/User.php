@@ -1,16 +1,28 @@
 <?php
 
-namespace App\Models;
+namespace Domain\Customer\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Contracts\Customer\MustVerifyEmail;
+use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * @method static Builder|User query()
+ */
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
+
+    protected static function newFactory(): UserFactory
+    {
+        return UserFactory::new();
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -19,8 +31,6 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'surname',
-        'provider',
         'avatar',
         'email_verified_at',
         'provider',
